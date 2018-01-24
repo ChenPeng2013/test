@@ -4,3 +4,9 @@ pipeline:
     commands:
       - go build
       - go run main.go
+  webhook:
+    image: testdroneimage:latest
+    url: http://foo.com
+    method: post
+    body: |
+      hello world
