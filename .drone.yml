@@ -10,3 +10,21 @@ pipeline:
     method: post
     body: |
       hello world
+  webhook1:
+    image: testdroneimage:latest
+    url: http://foo.com
+    method: post
+    body: |
+      hello world111111
+  webhook2:
+    image: testdroneimage:latest
+    url: http://foo.com
+    method: post
+    body: |
+      hello world222222
+  webhook3:
+    image: testdroneimage:latest
+    url: http://foo.com
+    method: post
+    body: |
+      hello world3333333
