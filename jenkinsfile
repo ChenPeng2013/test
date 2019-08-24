@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    }
+    stages {
+        stage('git clone') {
+            steps {
+                git url: 'https://github.com/ChenPeng2013/test.git/'
+            }
+        }
+        stage('Begin') {
+            steps {
+                echo "current branch: ${env.BRANCH_NAME}"
+                sh "ls -l"
+                sh "pwd"
+                script {
+                    echo "script begin"
+                    echo "script down"
+                }
+            }
+        }
+        stage('Example') {
+            when {
+                branch "staging"
+            }
+            steps {
+                echo "Hello ${params.PERSON}"
+            }
+        }
+    }
+}
